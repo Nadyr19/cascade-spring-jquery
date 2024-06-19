@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+
+    <title th:text="#{view.index.title}">Cascade</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link th:href="@{/css/style1.css}" rel="stylesheet" />
+    <!-- <title>Liste Utilisateur</title> -->
+  </head>
+
+  <body>
+    <header>
+      <div>
+        <a th:href="@{/home}"
+          ><img src="/images/haarp_logo.png" alt="Logo HAARP" id="logo-haarp"
+        /></a>
+      </div>
+      <div>
+        <h1 class="briem-hand">Cascade</h1>
+        <h2 class="briem-hand">outils d'apprentissage</h2>
+      </div>
+      <div>
+        <a th:href="@{/home}"
+          ><img src="/images/epmi_logo.png" alt="Logo EPMI"
+        /></a>
+      </div>
+    </header>
+
+    <div class="topnav">
+      <nav>
+        <a class="active" th:href="@{/home}">Home</a>
+        <a th:href="@{/exercices}">Exercices</a>
+        <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
+        <a th:href="@{/identification}" class="split">Connexion</a>
+        <a th:href="@{/inscription}" class="split">Inscription</a>
+      </nav>
+    </div>
+
+    <h2>Add/Edit Utilisateur</h2>
+
+    <form th:action="@{/save}" th:object="${utilisateur}" method="post">
+        <input type="hidden" th:field="*{id}" />  
+      <label for="firstName" >First Name:</label>
+      <input type="text" title="firstName" placeholder="First Name" th:field="*{firstName}" />
+      <br />
+      <label for="lastName">Last Name:</label>
+      <input type="text" title="lastName" placeholder="Last Name" th:field="*{lastName}" />
+      <br />
+      <label for="birthDate">Birth Date:</label>
+      <input type="date" title="birthDate" placeholder="JJ/MM/AAAA" th:field="*{birthDate}" />
+      <br />
+      <label for="ville">ville:</label>
+      <input type="text" title="ville" placeholder="ville" th:field="*{ville}" />
+      <br />
+      <label for="codePostal">Code Postal:</label>
+      <input type="text" title="codePostal" placeholder="75000" th:field="*{codePostal}" />
+      <br />
+      <label for="adresse">Adresse:</label>
+      <input type="text" placeholder="Adresse" th:field="*{adresse}" />
+      <br />
+      <label for="numeroTelephone">Numero Telephone:</label>
+      <input type="text" title="adresse" placeholder="060102030405" th:field="*{numeroTelephone}" />
+      <br />
+      <label for="ecole">Ecole:</label>
+      <input type="text" title="ecole" placeholder="Ecole" th:field="*{ecole}" />
+      <br />
+      <label for="classe">Classe:</label>
+      <input type="text" title="classe" placeholder="CE2" th:field="*{classe}" />
+      <br />
+      <button type="submit">Save</button>
+    </form>
+    <a th:href="@{/utilisateur/list}">Back to List</a>
+  </body>
+</html>

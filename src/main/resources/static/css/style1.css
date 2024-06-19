@@ -1,0 +1,220 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  .briem-hand {
+    font-family: "Briem Hand", cursive;
+    font-optical-sizing: auto;
+   /*font-weight: <weight>;*/
+    font-style: normal;
+  }
+
+ 
+header {
+  display: flex;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+/*flex: content;*/
+flex-direction: row;
+ align-items: center;
+ padding-left: 20px;
+ padding-right: 20px;
+ margin-left: 50px;
+ margin-right: 50px;
+ background-color: aquamarine;
+}
+ .en-tete{
+  display: flex;
+  flex-direction: column;
+
+
+ }
+  h1{
+    font-size: 5em;
+    text-align: center;
+    margin-bottom: -50px;
+    margin-top: -20px;
+  }
+
+  h2{
+    font-size: 2em;
+    text-align: justify;
+    text-align: center;
+  }
+/*
+  .topnav {
+
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+    */
+  
+   /*Create a right-aligned (split) link inside the navigation bar*/ 
+  .topnav a.split {
+    float: right;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+
+
+
+
+  #logo-haarp{
+    width: 130px;
+    height: 130px;
+    background-color: white;
+  }
+
+  /*
+  .box-exo{
+    border: 2px solid black;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #04AA6D;
+    margin: auto;
+    width: 30%;
+    height: 30%;
+  }
+    */
+  .box-exo img{
+    width: 50%;
+    height: 50%;
+  }
+
+  
+  .box2-exo{
+    text-align: center;
+    /*
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #04AA6D;
+    margin: auto;
+    width: 30%;
+    height: 30%;
+    */
+  }
+
+  .conteneur {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px;
+    align-content: center;
+    /*gap:*/
+    flex-wrap: wrap;
+  }
+
+  
+
+  .image_conteneur{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px;
+    align-content: center;
+    /*gap:*/
+    flex-wrap: wrap;
+    margin: auto;
+  }
+
+  .image_conteneur img{
+    height: 60px;
+    width: 60px;
+  }
+
+  .box2-exo img{
+    height: 50px;
+    width: 50px;
+  } 
+
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    
+    <title th:text="#{view.index.title}">Cascade</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link th:href="@{/css/style1.css}" rel="stylesheet">
+  </head>
+
+  <body>
+  
+    <header>
+      <div>
+        <a th:href="@{/index.html}"
+          ><img
+            src="/images/haarp_logo.png"
+            alt="Logo HAARP"
+            id="logo-haarp"
+        /></a>
+      </div>
+      <div>
+        <h1 class="briem-hand">Cascade</h1>
+        <h2 class="briem-hand">outils d'apprentissage</h2>
+      </div>
+      <div>
+        <a th:href="@{/index.html}"
+          ><img src="/images/epmi_logo.png" alt="Logo EPMI"
+        /></a>
+      </div>
+    </header>
+
+    <div class="topnav">
+      <nav>
+        <a class="active" th:href="@{/home}">Home</a>
+        <a th:href="@{/exercices}">Exercices</a>
+        <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
+        <a th:href="@{/identification}" class="split">Connexion</a>
+        <a th:href="@{/inscription}" class="split">Inscription</a>
+      </nav>
+    </div>
+    <main>
+      <section>
+        <h2>Exercices Pâtisserie</h2>
+        <div class="conteneur">
+          <div class="box-exo">
+            <a th:href="@{/exercices/exo_patisserie}">
+              niveau 1<img
+                src="/images/exercice/Pâtisserie.jpg"
+                alt="Exercice Pâtisserie"
+            /></a>
+          </div>
+          <div class="box-exo">
+            <h3>niveau 2</h3>
+            <a href="">
+              <img
+                src="/images/exercice/Pâtisserie.jpg"
+                alt="Exercice Pâtisserie"
+            /></a>
+          </div>
+          <div class="box-exo">
+            <h3>niveau 3</h3>
+            <a href="">
+              <img
+                src="/images/exercice/Pâtisserie.jpg"
+                alt="Exercice Pâtisserie"
+            /></a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Exercices Construction</h2>
+        <div class="conteneur">
+          <div class="box-exo">
+            <a href="">
+              niveau 1<img
+                src="/images/exercice/Construction.jpg"
+                alt="Exercice Construction"
+            /></a>
+          </div>
+          <div class="box-exo">
+            <h3>niveau 2</h3>
+            <a href="">
+              <img
+                src="/images/exercice/Construction.jpg"
+                alt="Exercice Construction"
+            /></a>
+          </div>
+          <div class="box-exo">
+            <h3>niveau 3</h3>
+            <a href="">
+              <img
+                src="/images/exercice/Construction.jpg"
+                alt="Exercice Construction"
+            /></a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Exercices Réparation</h2>
+        <div class="conteneur">
+          <div class="box-exo">
+            <a href="">
+              niveau 1<img
+                src="/images/exercice/reparation.jpg"
+                alt="Exercice reparation"
+            /></a>
+          </div>
+          <div class="box-exo">
+            <h3>niveau 2</h3>
+            <a href="">
+              <img
+                src="/images/exercice/reparation.jpg"
+                alt="Exercice reparation"
+            /></a>
+          </div>
+          <div class="box-exo">
+            <h3>niveau 3</h3>
+            <a href="">
+              <img
+                src="/images/exercice/reparation.jpg"
+                alt="Exercice reparation"
+            /></a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Exercices Assemblage</h2>
+        <div class="conteneur">
+          <div class="box-exo">
+            <a href="">
+              niveau 1<img
+                src="/images/exercice/assemblage.jpg"
+                alt="Exercice Assemblage"
+            /></a>
+          </div>
+          <div class="box-exo">
+            <h3>niveau 2</h3>
+            <a href="">
+              <img
+                src="/images/exercice/assemblage.jpg"
+                alt="Exercice Assemblage"
+            /></a>
+          </div>
+          <div class="box-exo">
+            <h3>niveau 3</h3>
+            <a href="">
+              <img
+                src="/images/exercice/assemblage.jpg"
+                alt="Exercice Assemblage"
+            /></a>
+          </div>
+        </div>
+      </section>
+
+
+      <section>
+        <h2>Exercices Construction</h2>
+      </section>
+
+      <section>
+        <h2>Exercices Réparation</h2>
+      </section>
+      <section>
+        <h2>Exercices Assemblage</h2>
+      </section>
+    </main>
+    <footer id="basPage">© Copyright 2018 Moncef Benkherrat</footer>
+
+    <!--
+ Templates: 
+<?include "inc/php/tpl.php";?>
+
+<div id="container">
+<?include "inc/php/page_header.php";?>
+ Main article:
+<article><div class="partContent"></div></article>
+</div>
+<?include "inc/php/page_footer.php";?>
+-->
+    <!-- Add sound if exist -->
+    <audio id="comment" type="audio/mpeg"></audio>
+
+    <script type="text/javascript">
+      //time calculation
+      function setPageAsloaded() {
+        console.log(
+          "%c page générée en <?=getExecTime($ts)?> sec et affichée en " +
+            (new Date() - document.app.ts) / 1000 +
+            " sec",
+          "background: <?=C::$WEB_LogBg?>; color: <?=C::$WEB_LogCol?>"
+        );
+      }
+
+      /*
+new BroadcastChannel('service-worker').addEventListener('message', event => {
+    console.log('Broadcast received in page:', event.data);
+});
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+}
+
+*/
+    </script>
+  </body>
+</html>

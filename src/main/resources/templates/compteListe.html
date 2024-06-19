@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    
+    <title th:text="#{view.index.title}">Cascade</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link th:href="@{/css/style1.css}" rel="stylesheet">
+   <!-- <title>Liste Utilisateur</title> -->
+
+  </head>
+
+  <body>
+  
+    <header>
+      <div>
+        <a th:href="@{/home}"
+          ><img
+            src="/images/haarp_logo.png"
+            alt="Logo HAARP"
+            id="logo-haarp"
+        /></a>
+      </div>
+      <div>
+        <h1 class="briem-hand">Cascade</h1>
+        <h2 class="briem-hand">outils d'apprentissage</h2>
+      </div>
+      <div>
+        <a th:href="@{/home}"
+          ><img src="/images/epmi_logo.png" alt="Logo EPMI"
+        /></a>
+      </div>
+    </header>
+
+    <div class="topnav">
+      <nav>
+        <a class="active" th:href="@{/home}">Home</a>
+        <a th:href="@{/exercices}">Exercices</a>
+        <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
+        <a th:href="@{/identification}" class="split">Connexion</a>
+        <a th:href="@{/inscription}" class="split">Inscription</a>
+      </nav>
+    </div>
+   
+
+    <h2>Liste Comptes</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Password</th>
+          
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="compte : ${comptes}">
+          <td th:text="${compte.id}"></td>
+          <td th:text="${compte.email}"></td>
+          <td th:text="${compte.password}"></td>
+          <td>
+            <a th:href="@{'/compte/edit/' + ${compte.id}}">Edit</a>
+            <a th:href="@{'/compte/delete/' + ${compte.id}}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/compte/add}">Add compte</a>
+  </body>
+</html>

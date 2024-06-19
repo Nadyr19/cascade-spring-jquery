@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Cascade</title>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+
+
+    <script
+    type="text/javascript"
+    src="script1.js"
+    defer
+  ></script>
+
+
+    
+    <script
+      type="text/javascript"
+      src="inc/js/lib/1_jquery-3.2.1.min.js"
+      defer
+    ></script>
+    <script
+      type="text/javascript"
+      src="inc/js/lib/2_jquery-ui.min.js"
+      defer
+    ></script>
+    <script
+      type="text/javascript"
+      src="inc/js/lib/3_jquery.ui.touch-punch.min.js"
+      defer
+    ></script>
+    <script
+      type="text/javascript"
+      src="inc/js/lib/progressbar.min.js"
+      defer
+    ></script>
+    <!--Includes JS-->
+    <script
+      type="text/javascript"
+      src="inc/js/article/manifest.js"
+      defer
+    ></script>
+    <script type="text/javascript" src="inc/js/com.js" defer></script>
+    <script type="text/javascript" src="inc/js/class/ajax.js" defer></script>
+    <script type="text/javascript" src="inc/js/class/message.js" defer></script>
+    <script type="text/javascript" src="inc/js/class/score.js" defer></script>
+    <script
+      type="text/javascript"
+      src="<?=$foldUp?>exercice/exercice.js"
+      defer
+    ></script>
+    <script
+      type="text/javascript"
+      src="inc/js/article/exercice.js"
+      defer
+    ></script>
+    <!-- <script type="text/javascript" src="inc/js/article/manifest.debug.js"></script> -->
+
+    <link href="../../static/css/style1.css" rel="stylesheet" type="text/css" />
+    <link href="inc/css/effect.css" rel="stylesheet" type="text/css" />
+
+    <script
+      type="text/javascript"
+      src="<?=$foldUp?>exercice/exercice.js"
+      defer
+    ></script>
+    <script
+      src="upload/min/min.js"
+      async="async"
+      defer="defer"
+      type="text/javascript"
+      defer
+    ></script>
+
+  <!--
+    <link href="upload/min/min.css" rel="stylesheet" type="text/css" />
+    -->
+
+
+  </head>
+
+  <body>
+    <!--
+        <header id='topPage'>
+            <div class='logo'><span class="blink">Logo</span></div>
+            <div class='bandeau'></div>
+        </header>
+        
+        <div id='mainPage'>
+            <nav class="menuGauche"></nav>
+            <div class='centre'></div>
+        </div>
+	
+
+
+	<nav>
+		<img src="images/logo.png" alt="Logo Robbie Lens" >
+		<div>
+			<a href="index.html">Accueil</a>
+			<a href="a-propos.html">À propos</a>
+			<a href="portfolio.html">Portfolio</a>
+		</div>
+	</nav>
+</header>
+-->
+<header>
+  <div>
+    <img src="inc/img/haarp_logo.png" alt="Logo HAARP" id="logo-haarp" />
+  </div>
+  <div>
+    <h1 class="briem-hand">Cascade</h1>
+    <h2 class="briem-hand">outils d'apprentissage</h2>
+  </div>
+  <div>
+    <img src="inc/img/epmi_logo.png" alt="Logo EPMI" />
+  </div>
+</header>
+
+    <div class="topnav">
+      <nav>
+        <a class="active" href="index.html">Home</a>
+        <a href="exercices.html">Exercices</a>
+        <a href="mon_tableau_de_bord.html">Mon Tableau de Bord</a>
+        <a href="identification.html" class="split">Connexion</a>
+        <a href="inscription.html" class="split">Inscription</a>
+      </nav>  
+    </div> 
+
+    <form action="/inscription" method="post">
+        <ul>
+            <li>
+                <input type="hidden" id="id" name="id">
+            </li>
+            <li>
+              <label for="firstName">firstName&nbsp;:</label>
+              <input type="text" id="firstName" name="firstName" />
+            </li>
+            <li>
+                <label for="lastName">lastName&nbsp;:</label>
+                <input type="text" id="lastName" name="lastName" />
+              </li>
+              <li>
+                <label for="birthDate">birthDate&nbsp;:</label>
+                <input type="date" id="birthDate" name="birthDate" />
+              </li>
+              <li>
+                <label for="ville">firstName&nbsp;:</label>
+                <input type="text" id="firstName" name="firstName" />
+              </li>
+              <li>
+                <label for="codePostal">firstName&nbsp;:</label>
+                <input type="text" id="firstName" name="firstName" />
+              </li>
+              <li>
+                <label for="adresse">firstName&nbsp;:</label>
+                <input type="text" id="firstName" name="firstName" />
+              </li>
+              <li>
+                <label for="numeroTelephone">firstName&nbsp;:</label>
+                <input type="text" id="firstName" name="firstName" />
+              </li>
+              <li>
+                <label for="compte">firstName&nbsp;:</label>
+                <input type="text" id="firstName" name="firstName" />
+              </li>
+              <li>
+                <label for="classe">firstName&nbsp;:</label>
+                <input type="text" id="firstName" name="firstName" />
+              </li>
+              <li>
+                <label for="ecole">firstName&nbsp;:</label>
+                <input type="text" id="firstName" name="firstName" />
+              </li>
+              <li>
+                <label for="resultat">firstName&nbsp;:</label>
+                <input type="text" id="firstName" name="firstName" />
+              </li>
+              
+            <li>
+                <label for="password">Nom&nbsp;:</label>
+                <input type="password" id="password" name="password" />
+            </li>
+        </ul>
+            <div class="button">
+                <button type="submit">Valider</button>
+              </div>
+              
+      </form>
+      
+
+      <style>
+    form {
+  /* On centre le formulaire */
+  margin: 0 auto;
+  width: 400px;
+  /* Le contour du formulaire */
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+form li + li {
+  margin-top: 1em;
+}
+
+label {
+  /* Taille et alignement uniformes */
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+
+input,
+textarea {
+  /* On s'assure que les champs texte ont la même police
+     Par défaut, les zones de texte ont une police à chasse
+     fixe. */
+  font: 1em sans-serif;
+
+  /* Taille uniforme pour des champs */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* On utilise la même bordure que pour le formulaire */
+  border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+  /* On rajoute une mise en avant pour les éléments avec
+     le focus. */
+  border-color: #000;
+}
+
+textarea {
+  /* On aligne les textes sur plusieurs lignes avec leur
+     libellé. */
+  vertical-align: top;
+
+  /* On fournit un peut d'espace pour saisir du texte. */
+  height: 5em;
+
+  /* On permet de redimensionner verticalement. */
+  resize: vertical;
+}
+
+.button {
+  /* On aligne les boutons avec les champs texte. */
+  padding-left: 90px; /* La même taille que les libellés */
+}
+
+button {
+  /* Une marge supplémentaire représentant approximativement
+     le même espace qu'entre les libellés et les champs. */
+  margin-left: 0.5em;
+}
+
+      </style>
+      
+    <footer id="basPage">© Copyright 2018 Moncef Benkherrat</footer>
+
+    <!--
+ Templates: 
+<?include "inc/php/tpl.php";?>
+
+<div id="container">
+<?include "inc/php/page_header.php";?>
+ Main article:
+<article><div class="partContent"></div></article>
+</div>
+<?include "inc/php/page_footer.php";?>
+-->
+    <!-- Add sound if exist -->
+    <audio id="comment" type="audio/mpeg"></audio>
+
+    <script type="text/javascript">
+      //time calculation
+      function setPageAsloaded() {
+        console.log(
+          "%c page générée en <?=getExecTime($ts)?> sec et affichée en " +
+            (new Date() - document.app.ts) / 1000 +
+            " sec",
+          "background: <?=C::$WEB_LogBg?>; color: <?=C::$WEB_LogCol?>"
+        );
+      }
+
+      /*
+new BroadcastChannel('service-worker').addEventListener('message', event => {
+    console.log('Broadcast received in page:', event.data);
+});
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+}
+
+*/
+    </script>
+  </body>
+</html>
