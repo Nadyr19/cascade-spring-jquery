@@ -2,7 +2,7 @@ package fr.cascade.outil_cascade.entities;
 
 import java.sql.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
+//import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -22,7 +22,7 @@ public abstract class Personne {
     private Long id;
     private String firstName;
     private String lastName;
-    @DateTimeFormat(pattern="dd-mm-yyyy")
+   // @DateTimeFormat(pattern="dd-mm-yyyy")
     private Date birthDate;
     private String ville;
     private String codePostal;
