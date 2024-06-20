@@ -44,12 +44,12 @@ public class ThymeleafController {
     @PostMapping("/save")
     public String saveUtilisateur(@ModelAttribute Utilisateur utilisateur) {
         utilisateurService.addUtilisateur(utilisateur);
-        return "redirect:/list";
+        return "redirect:/utilisateur/list";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUtilisateur(@PathVariable Long id) {
         utilisateurService.deleteUtilisateurById (id);
-        return "redirect:/list";
+        return "redirect:/utilisateur/list";
     }
 }
