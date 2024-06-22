@@ -1,59 +1,55 @@
-/*package fr.cascade.outil_cascade.controllers;
+package fr.cascade.outil_cascade.controllers;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import fr.cascade.outil_cascade.entities.Utilisateur;
 import fr.cascade.outil_cascade.services.UtilisateurService;
 
-@RestController
+@Controller
 @RequestMapping("/utilisateur")
 public class UtilisateurController {
 
     @Autowired
     private UtilisateurService utilisateurService;
 
-    @GetMapping
-    public List<Utilisateur> getAllUtilisateurs() {
-        return utilisateurService.getAllUtilisateurs();
+    @GetMapping("/list")
+    public String showUtilisateurList(Model model) {
+        List<Utilisateur> utilisateurs = utilisateurService.getAllUtilisateurs();
+        model.addAttribute("utilisateurs", utilisateurs);
+        return "utilisateurList";
     }
 
-    @GetMapping("/{id}")
-    public Utilisateur getUtilisateurById(@PathVariable Long id) {
-        return utilisateurService.getUtilisateurById(id);
+    @GetMapping("/add")
+    public String showAddUtilisateurForm(Model model) {
+        model.addAttribute("utilisateur", new Utilisateur());
+        return "addEditUtilisateur";
     }
 
-    @PostMapping
-    public Utilisateur addUtilisateur(@RequestBody Utilisateur utilisateur) {
-        return utilisateurService.addUtilisateur(utilisateur);
+    @GetMapping("/edit/{id}")
+    public String showEditUtilisateurForm(@PathVariable Long id, Model model) {
+        Utilisateur utilisateur = utilisateurService.getUtilisateurById(id);
+        model.addAttribute("utilisateur", utilisateur);
+        return "addEditUtilisateur";
     }
 
-    @PutMapping("/{id}")
-    public Utilisateur updateUtilisateur(@PathVariable Long id, @RequestBody Utilisateur updatedUtilisateur) {
-        return utilisateurService.updateUtilisateur(id, updatedUtilisateur);
+    @PostMapping("/save")
+    public String saveUtilisateur(@ModelAttribute Utilisateur utilisateur) {
+        utilisateurService.addUtilisateur(utilisateur);
+        return "redirect:/utilisateur/list";
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteUtilisateurById(@PathVariable Long id) {
-        utilisateurService.deleteUtilisateurById(id);
+    @GetMapping("/delete/{id}")
+    public String deleteUtilisateur(@PathVariable Long id) {
+        utilisateurService.deleteUtilisateurById (id);
+        return "redirect:/utilisateur/list";
     }
-
-
-   // @DeleteMapping("/{id}")
-   // public void deleteUtilisateurByName(@PathVariable Utilisateur utilisateur) {
-   //     utilisateurService.deleteUtilisateurByName(utilisateur);
-   // }
-
 }
-
-
-*/

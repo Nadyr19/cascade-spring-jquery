@@ -3,48 +3,55 @@ package fr.cascade.outil_cascade.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import fr.cascade.outil_cascade.entities.ProfessionnelSante;
 import fr.cascade.outil_cascade.services.ProfessionnelSanteService;
 
-@RestController
-@RequestMapping("professionnelsante")
+@Controller
+@RequestMapping("/professionnelSante")
 public class ProfessionnelSanteController {
 
     @Autowired
     private ProfessionnelSanteService professionnelSanteService;
 
-    @GetMapping
-    public List<ProfessionnelSante> getAllProfessionnelSante() {
-        return professionnelSanteService.getAllProfessionnelSante();
+
+    @GetMapping("/list")
+    public String showProfessionnelSanteList(Model model) {
+        List<ProfessionnelSante> professionnelSante = professionnelSanteService.getAllProfessionnelSante();
+        model.addAttribute("professionnelSante", professionnelSante);
+        return "professionnelSanteListe";
     }
 
-    @GetMapping("/{id}")
-    public ProfessionnelSante getProfessionnelSanteById(@PathVariable Long id) {
-        return professionnelSanteService.getProfessionnelSanteById(id);
+    @GetMapping("/add")
+    public String showAddProfessionnelSanteForm(Model model) {
+        model.addAttribute("professionnelSante", new ProfessionnelSante());
+        return "addEditProfessionnelSante";
     }
 
-    @PostMapping
-    public ProfessionnelSante addProfessionnelSante(@RequestBody ProfessionnelSante professionnelSante) {
-        return professionnelSanteService.addProfessionnelSante(professionnelSante);
+    @GetMapping("/edit/{id}")
+    public String showEditProfessionnelSanteForm(@PathVariable Long id, Model model) {
+        ProfessionnelSante professionnelSante = professionnelSanteService.getProfessionnelSanteById(id);
+        model.addAttribute("professionnelSante", professionnelSante);
+        return "addEditProfessionnelSante";
     }
 
-    @PutMapping("/{id}")
-    public ProfessionnelSante updateProfessionnelSante(@PathVariable Long id, @RequestBody ProfessionnelSante updatedProfessionnelSante) {
-        return professionnelSanteService.updateProfessionnelSante(id, updatedProfessionnelSante);
+    @PostMapping("/save")
+    public String saveProfessionnelSante(@ModelAttribute ProfessionnelSante professionnelSante) {
+        professionnelSanteService.addProfessionnelSante(professionnelSante);
+        return "redirect:/professionnelSante/list";
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteProfessionnelSanteById(@PathVariable Long id) {
-        professionnelSanteService.deleteProfessionnelSanteById(id);
+    @GetMapping("/delete/{id}")
+    public String deleteProfessionnelSanteById(@PathVariable Long id) {
+        professionnelSanteService.deleteProfessionnelSanteById(id); 
+        return "redirect:/professionnelSante/list";
     }
 
     /* 

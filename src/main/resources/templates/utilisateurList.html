@@ -47,6 +47,16 @@
         <a class="active" th:href="@{/home}">Home</a>
         <a th:href="@{/exercices}">Exercices</a>
         <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
+        <div class="dropdown">
+          <button class="dropbtn">Administration
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a th:href="@{/utilisateur/list}">Utilisateurs</a>
+            <a th:href="@{/professionnelSante/list}">Professionnels de Santé</a>
+            <a th:href="@{/connexion/list}">Connexions</a>
+          </div>
+        </div> 
         <a th:href="@{/identification}" class="split">Connexion</a>
         <a th:href="@{/inscription}" class="split">Inscription</a>
       </nav>

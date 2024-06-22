@@ -47,13 +47,23 @@
         <a class="active" th:href="@{/home}">Home</a>
         <a th:href="@{/exercices}">Exercices</a>
         <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
+        <div class="dropdown">
+          <button class="dropbtn">Administration
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a th:href="@{/utilisateur/list}">Utilisateurs</a>
+            <a th:href="@{/professionnelSante/list}">Professionnels de Santé</a>
+            <a th:href="@{/connexion/list}">Connexions</a>
+          </div>
+        </div> 
         <a th:href="@{/identification}" class="split">Connexion</a>
         <a th:href="@{/inscription}" class="split">Inscription</a>
       </nav>
     </div>
    
 
-    <h2>Liste Utilisateur</h2>
+    <h2>Liste Professionnel de Santé</h2>
     <table border="1">
       <thead>
         <tr>
@@ -65,30 +75,30 @@
           <th>Code Postal</th>
           <th>Adresse</th>
           <th>numeroTelephone</th>
-          <th>Ecole</th>
-          <th>Classe</th>
+          <th>Hôpital</th>
+          <th>Service</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr th:each="utilisateur : ${utilisateurs}">
-          <td th:text="${utilisateur.id}"></td>
-          <td th:text="${utilisateur.firstName}"></td>
-          <td th:text="${utilisateur.lastName}"></td>
-          <td th:text="${utilisateur.birthDate}"></td>
-          <td th:text="${utilisateur.ville}"></td>
-          <td th:text="${utilisateur.codePostal}"></td>
-          <td th:text="${utilisateur.adresse}"></td>
-          <td th:text="${utilisateur.numeroTelephone}"></td>
-          <td th:text="${utilisateur.ecole}"></td>
-          <td th:text="${utilisateur.classe}"></td>
+        <tr th:each="professionnelSante : ${professionnelSante}">
+          <td th:text="${professionnelSante.id}"></td>
+          <td th:text="${professionnelSante.firstName}"></td>
+          <td th:text="${professionnelSante.lastName}"></td>
+          <td th:text="${professionnelSante.birthDate}"></td>
+          <td th:text="${professionnelSante.ville}"></td>
+          <td th:text="${professionnelSante.codePostal}"></td>
+          <td th:text="${professionnelSante.adresse}"></td>
+          <td th:text="${professionnelSante.numeroTelephone}"></td>
+          <td th:text="${professionnelSante.hopital}"></td>
+          <td th:text="${professionnelSante.service}"></td>
           <td>
-            <a th:href="@{'/utilisateur/edit/' + ${utilisateur.id}}">Edit</a>
-            <a th:href="@{'/utilisateur/delete/' + ${utilisateur.id}}">Delete</a>
+            <a th:href="@{'/professionnelSante/edit/' + ${professionnelSante.id}}">Edit</a>
+            <a th:href="@{'/professionnelSante/delete/' + ${professionnelSante.id}}">Delete</a>
           </td>
         </tr>
       </tbody>
     </table>
-    <a th:href="@{/utilisateur/add}">Add Utilisateur</a>
+    <a th:href="@{/professionnelSante/add}">Add Professionnel de Santé</a>
   </body>
 </html>

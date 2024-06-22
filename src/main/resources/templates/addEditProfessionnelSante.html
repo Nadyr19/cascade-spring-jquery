@@ -38,28 +38,28 @@
     </header>
 
     <div class="topnav">
-      <nav>
-        <a class="active" th:href="@{/home}">Home</a>
-        <a th:href="@{/exercices}">Exercices</a>
-        <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
-        <div class="dropdown">
-          <button class="dropbtn">Administration
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a th:href="@{/utilisateur/list}">Utilisateurs</a>
-            <a th:href="@{/professionnelSante/list}">Professionnels de Santé</a>
-            <a th:href="@{/connexion/list}">Connexions</a>
-          </div>
-        </div> 
-        <a th:href="@{/identification}" class="split">Connexion</a>
-        <a th:href="@{/inscription}" class="split">Inscription</a>
-      </nav>
-    </div>
+        <nav>
+          <a class="active" th:href="@{/home}">Home</a>
+          <a th:href="@{/exercices}">Exercices</a>
+          <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
+          <div class="dropdown">
+            <button class="dropbtn">Administration
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a th:href="@{/utilisateur/list}">Utilisateurs</a>
+              <a th:href="@{/professionnelSante/list}">Professionnels de Santé</a>
+              <a th:href="@{/connexion/list}">Connexions</a>
+            </div>
+          </div> 
+          <a th:href="@{/identification}" class="split">Connexion</a>
+          <a th:href="@{/inscription}" class="split">Inscription</a>
+        </nav>
+      </div>
 
-    <h2>Add/Edit Utilisateur</h2>
+    <h2>Add/Edit Professionnel de Santé</h2>
 
-    <form th:action="@{/utilisateur/save}" th:object="${utilisateur}" method="post">
+    <form th:action="@{/professionnelSante/save}" th:object="${professionnelSante}" method="post">
         <input type="hidden" th:field="*{id}" />  
       <label for="firstName" >First Name:</label>
       <input type="text" title="firstName" placeholder="First Name" th:field="*{firstName}" />
@@ -68,7 +68,7 @@
       <input type="text" title="lastName" placeholder="Last Name" th:field="*{lastName}" />
       <br />
       <label for="birthDate">Birth Date:</label>
-      <input type="date" title="birthDate" placeholder="dd-MM-yyyy" th:field="*{birthDate}" />
+      <input type="date" title="birthDate" placeholder="JJ/MM/AAAA" th:field="*{birthDate}" />
       <br />
       <label for="ville">ville:</label>
       <input type="text" title="ville" placeholder="ville" th:field="*{ville}" />
@@ -82,14 +82,14 @@
       <label for="numeroTelephone">Numero Telephone:</label>
       <input type="text" title="adresse" placeholder="060102030405" th:field="*{numeroTelephone}" />
       <br />
-      <label for="ecole">Ecole:</label>
-      <input type="text" title="ecole" placeholder="Ecole" th:field="*{ecole}" />
+      <label for="hopital">Hôpital:</label>
+      <input type="text" title="hopital" placeholder="Hôpital" th:field="*{hopital}" />
       <br />
-      <label for="classe">Classe:</label>
-      <input type="text" title="classe" placeholder="CE2" th:field="*{classe}" />
+      <label for="service">Service:</label>
+      <input type="text" title="service" placeholder="service" th:field="*{service}" />
       <br />
       <button type="submit">Save</button>
     </form>
-    <a th:href="@{/utilisateur/list}">Back to List</a>
+    <a th:href="@{/professionnelSante/list}">Back to List</a>
   </body>
 </html>

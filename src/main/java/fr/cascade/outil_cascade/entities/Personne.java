@@ -2,6 +2,7 @@ package fr.cascade.outil_cascade.entities;
 
 import java.sql.Date;
 
+
 //import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
@@ -12,6 +13,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -20,16 +25,22 @@ public abstract class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
+    @NotBlank(message = "First name is required")
+    @Size(max = 255, message = "First name cannot exceed 255 characters")
     private String firstName;
+    @NotBlank(message = "Last name is required")
+    @Size(max = 255, message = "Last name cannot exceed 255 characters") 
     private String lastName;
-   // @DateTimeFormat(pattern="dd-mm-yyyy")
+    @NotNull(message = "Date of birth is required")
+    @Past(message = "Date of birth must be in the past")
+   // @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
     private String ville;
     private String codePostal;
     private String adresse;
     private String numeroTelephone;
 
-    @OneToOne(mappedBy = "personne", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "personne", fetch = FetchType.EAGER)
     private Compte compte;
 
     public Long getId() {
