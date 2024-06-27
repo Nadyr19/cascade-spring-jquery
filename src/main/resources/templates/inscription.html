@@ -50,7 +50,9 @@
         <a th:href="@{/inscription}" class="split">Inscription</a>
       </nav>
     </div>
-    <form method="post" action="/inscription.html">
+    <h1>Inscription</h1> <br>
+    <h2>Veuillez saisir votre email et mot de passe </h2>
+    <form th:action="@{/compte/save}" th:object="${compte}" method="post">
         <ul>
             <li>
               <label for="mail">E-mail&nbsp;:</label>
@@ -60,9 +62,61 @@
                 <label for="password">Password&nbsp;:</label>
                 <input type="password" id="password" name="password" />
             </li>
+            
+              <!--
+            <li>
+
+
+              <fieldset>
+                <legend>Quel est votre rôle ?:</legend>
+              
+                <div>
+                  <input type="radio" id="option1" name="option1" th:value="${utilisateur}" th:field="*{UTILISATEUR}" checked />
+                  <label th:for="utilisateur">Utilisateur</label>
+                </div>
+              
+                <div>
+                  <input type="radio" id="option2" name="option2" th:value="${professionnelSante}" th:field="*{PROFESSIONNELSANTE}" />
+                  <label th:for="professionnelSante">Professionnel de Santé</label>
+                </div>
+              
+                <div>
+                  <input type="radio" id="option3" name="option3" th:value="${administrateur}" th:field="*{ADMINISTRATEUR}" />
+                  <label th:for="administrateur">Administrateur</label>
+                </div>
+              </fieldset>
+              
+
+
+
+               <div class="form-group">
+                <label>Vous êtes : </label>
+                <div th:each="model : ${T(com.frontbackend.thymeleaf.bootstrap.model.CarModel).values()}"> 
+                    <div>
+                        <input type="radio" th:field="*{personne}" th:value="${personne}" >
+                        <label th:for="${#ids.prev('carModel')}" th:text="${model}">model</label>
+                    </div> 
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="option1" name="option1" class="custom-control-input" value="1" th:field="*{option}">
+                    <label class="custom-control-label" for="option1">Option1</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="option2" name="option2" class="custom-control-input" value="2" th:field="*{option}">
+                    <label class="custom-control-label" for="option2">Option2</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="option3" name="option3" class="custom-control-input" value="3" th:field="*{option}">
+                    <label class="custom-control-label" for="option3">Option3</label>
+                </div>
+            </div> 
+          </li>
+        -->
         </ul>
             <div class="button">
-                <button type="submit">Valider</button>
+                <button type="submit">S'inscrire</button>
               </div>
               
       </form>
@@ -144,50 +198,6 @@ button {
       </style>
       
     <footer id="basPage">© Copyright 2018 Moncef Benkherrat</footer>
-
-    <!--
- Templates: 
-<?include "inc/php/tpl.php";?>
-
-<div id="container">
-<?include "inc/php/page_header.php";?>
- Main article:
-<article><div class="partContent"></div></article>
-</div>
-<?include "inc/php/page_footer.php";?>
--->
-    <!-- Add sound if exist -->
-    <audio id="comment" type="audio/mpeg"></audio>
-
-    <script type="text/javascript">
-      //time calculation
-      function setPageAsloaded() {
-        console.log(
-          "%c page générée en <?=getExecTime($ts)?> sec et affichée en " +
-            (new Date() - document.app.ts) / 1000 +
-            " sec",
-          "background: <?=C::$WEB_LogBg?>; color: <?=C::$WEB_LogCol?>"
-        );
-      }
-
-      /*
-new BroadcastChannel('service-worker').addEventListener('message', event => {
-    console.log('Broadcast received in page:', event.data);
-});
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-            // Registration was successful
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-            // registration failed :(
-            console.log('ServiceWorker registration failed: ', err);
-        });
-    });
-}
-
-*/
-    </script>
+    
   </body>
 </html>

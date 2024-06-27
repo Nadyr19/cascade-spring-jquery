@@ -18,11 +18,11 @@ public class HomeController {
     }
 */
   
-
+/* 
      @GetMapping("/home")
     public String getHome() {
         return "index";
-    }
+    }*/
 
     @GetMapping("/exercices")
     public String getExercices() {

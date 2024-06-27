@@ -40,7 +40,7 @@ public class UtilisateurService {
         if (existingUtilisateur.isPresent()) {
             Utilisateur utilisateur = existingUtilisateur.get();
             utilisateur.setClasse(updatedUtilisateur.getClasse());
-            utilisateur.setEcole(updatedUtilisateur.getClasse());
+            utilisateur.setEcole(updatedUtilisateur.getEcole());
             return utilisateurRepository.save(utilisateur);
         }
         return null; // Gérer le cas où la utilisateur n'est pas trouvée

@@ -63,6 +63,9 @@ public class Compte {
     public void setPersonne(Personne personne) {
         this.personne = personne;
     }
+    
+   
+
     public Compte() {
     }
     public Compte(Long id, String email, String password, Personne personne, Collection<Connexion> connexion) {
@@ -124,6 +127,7 @@ public class Compte {
             return false;
         return true;
     }
+   
 
     
 }
