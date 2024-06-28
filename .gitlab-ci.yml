@@ -1,0 +1,60 @@
+stages:
+  - compile
+  - test
+  - build
+  - docker_build
+  - deploy
+
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode"
+  DOCKER_IMAGE: "$CI_REGISTRY/$CI_REGISTRY_USER/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG"
+
+compile:
+  stage: compile
+  image: maven:3.8.5-openjdk-17
+  script:
+    - mvn $MAVEN_CLI_OPTS compile
+
+test:
+  stage: test
+  image: maven:3.8.5-openjdk-17
+  script:
+    - mvn $MAVEN_CLI_OPTS test
+
+build:
+  stage: build
+  image: maven:3.8.5-openjdk-17
+  script:
+    - mvn $MAVEN_CLI_OPTS package -Pprod -DskipTests
+  artifacts:
+    paths:
+      - target/*.jar
+
+docker_build:
+  stage: docker_build
+  image: docker:latest
+  services:
+    - docker:dind
+  # On ne met pas d'informations sensibles comme les mots de passe pour
+  # le docker hub dans un fichier sur github ou gitlab
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  script:
+    - docker build -t mousse2025/mysqlserveur -f Dockerfilemysql .
+    - docker build -t mousse2025/springserveur -f Dockerfilespring .
+    - docker push mousse2025/mysqlserveur
+    - docker push mousse2025/springserveur
+  after_script:
+    - docker logout $CI_REGISTRY
+
+deploy:
+  stage: deploy
+  image: docker/compose:latest
+  services:
+    - docker:dind
+  script:
+    - docker compose stop
+    - docker compose rm -f
+    - docker compose -f docker-compose.yml up -d
+
+

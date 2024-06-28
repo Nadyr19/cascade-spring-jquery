@@ -12,44 +12,36 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "RESULTAT")
+@Table(name = "Resultat")
 @org.hibernate.annotations.Immutable
 public class Resultat {
 
     @Embeddable
     public static class Id implements Serializable {
-        @Column(name = "UTILISATEUR_ID")
-        protected Long utilisateurId;
-        @Column(name = "EXERCICE_ID")
+        @Column(name = "EnfantAutiste_ID")
+        protected Long EnfantAutisteId;
+        @Column(name = "Exercice_ID")
         protected Long exerciceId;
 
         public Id() {
         }
 
         public Id(Long utilisateurId, Long exerciceId) {
-            this.utilisateurId = utilisateurId;
+            this.EnfantAutisteId = utilisateurId;
             this.exerciceId = exerciceId;
         }
-
-        /* 
-         private Long id;
-         private Date date;
-         private int nombreEssais;
-         private Date duree;
-         private int score;
-         */
 
         public boolean equals(Object o) {
             if (o != null && o instanceof Id) {
                 Id that = (Id) o;
-                return this.utilisateurId.equals(that.utilisateurId)
+                return this.EnfantAutisteId.equals(that.EnfantAutisteId)
                         && this.exerciceId.equals(that.exerciceId);
             }
             return false;
         }
 
         public int hashCode() {
-            return utilisateurId.hashCode() + exerciceId.hashCode();
+            return EnfantAutisteId.hashCode() + exerciceId.hashCode();
         }
     }
 
@@ -65,41 +57,24 @@ public class Resultat {
     @Column(updatable = false)
     private int score;
     @ManyToOne
-    @JoinColumn(name = "UTILISATEUR_ID", insertable = false, updatable = false)
-    protected Utilisateur utilisateur;
+    @JoinColumn(name = "EnfantAutiste_ID", insertable = false, updatable = false)
+    protected EnfantAutiste enfantAutiste;
     @ManyToOne
-    @JoinColumn(name = "EXERCICE_ID", insertable = false, updatable = false)
+    @JoinColumn(name = "Exercice_ID", insertable = false, updatable = false)
     protected Exercice exercice;
 
-   
 
-    /* 
- public CategorizedItem(
- String addedByUsername,
- Category category,
- Item item) {
- this.addedBy = addedByUsername;
- this.category = category;
- this.item = item;
- this.id.categoryId = category.getId();
- this.id.itemId = item.getId();
- category.getCategorizedItems().add(this);
- item.getCategorizedItems().add(this);
- }
-    // ...
-    */
-
-    public Resultat(Date date, int nombreEssais, Date duree, int score, Utilisateur utilisateur, Exercice exercice) {
+    public Resultat(Date date, int nombreEssais, Date duree, int score, EnfantAutiste enfantAutiste, Exercice exercice) {
         this.date = date;
         this.nombreEssais = nombreEssais;
         this.duree = duree;
         this.score = score;
-        this.utilisateur = utilisateur;
+        this.enfantAutiste = enfantAutiste;
         this.exercice = exercice;
         this.id.exerciceId = exercice.getId();
-        this.id.utilisateurId = utilisateur.getId();
+        this.id.EnfantAutisteId = enfantAutiste.getId();
         exercice.getResultat().add(this);
-        utilisateur.getResultat().add(this);
+        enfantAutiste.getResultat().add(this);
 
     }
     

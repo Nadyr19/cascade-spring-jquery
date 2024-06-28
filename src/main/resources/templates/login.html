@@ -8,13 +8,42 @@
     name="viewport"
     content="width=device-width, initial-scale=1"
   />
-    <title>Registration and Login System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">
+  <title th:text="#{view.index.title}">Cascade</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Roboto:wght@400;900&display=swap"
+    rel="stylesheet"
+  />
+  
+  <link th:href="@{/css/style1.css}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+
 </head>
 <body>
+    <header>
+        <div>
+          <a th:href="@{/index.html}"
+            ><img
+              src="/images/haarp_logo.png"
+              alt="Logo HAARP"
+              id="logo-haarp"
+          /></a>
+        </div>
+        <div>
+          <h1 class="briem-hand">Cascade</h1>
+          <h2 class="briem-hand">outils d'apprentissage</h2>
+        </div>
+        <div>
+          <a th:href="@{/index.html}"
+            ><img src="/images/epmi_logo.png" alt="Logo EPMI"
+          /></a>
+        </div>
+      </header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/index}">Registration and Login System</a>

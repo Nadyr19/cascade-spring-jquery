@@ -1,55 +1,53 @@
 package fr.cascade.outil_cascade.entities;
 
-import java.sql.Date;
-
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
-public class Administrateur extends Personne {
+public class Administrateur {
 
-   // @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
-   // private Long id;
-    private String bureau;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  //   @OneToOne(mappedBy = "administrateur", fetch = FetchType.LAZY)
-  //  private Compte compte;
+    private String fonction;
 
-    public String getBureau() {
-        return bureau;
+    @OneToOne
+    private User user;
+
+    public String getFonction() {
+        return fonction;
     }
 
-    public void setBureau(String bureau) {
-        this.bureau = bureau;
+    public void setFonction(String fonction) {
+        this.fonction = fonction;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Administrateur() {
     }
 
-    public Administrateur(String bureau) {
-        this.bureau = bureau;
-    }
-
-    
-    public Administrateur(Long id, String firstName, String lastName, Date birthDate, String ville, String codePostal,
-            String adresse, String numeroTelephone, Compte compte, String bureau) {
-        super(id, firstName, lastName, birthDate, ville, codePostal, adresse, numeroTelephone, compte);
-        this.bureau = bureau;
-    }
-
     @Override
     public String toString() {
-        return "Administrateur [bureau=" + bureau + ", getId()=" + getId() + ", getFirstName()="
-                + getFirstName() + ", getLastName()=" + getLastName() + ", getBirthDate()=" + getBirthDate()
-                + ", getVille()=" + getVille() + ", getCodePostal()=" + getCodePostal() + ", getAdresse()="
-                + getAdresse() + ", getNumeroTelephone()=" + getNumeroTelephone() + "]";
+        return "Administrateur [fonction=" + fonction + ", user=" + user + "]";
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + ((bureau == null) ? 0 : bureau.hashCode());
+        int result = 1;
+        result = prime * result + ((fonction == null) ? 0 : fonction.hashCode());
+        result = prime * result + ((user == null) ? 0 : user.hashCode());
         return result;
     }
 
@@ -57,19 +55,22 @@ public class Administrateur extends Personne {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!super.equals(obj))
+        if (obj == null)
             return false;
         if (getClass() != obj.getClass())
             return false;
         Administrateur other = (Administrateur) obj;
-        if (bureau == null) {
-            if (other.bureau != null)
+        if (fonction == null) {
+            if (other.fonction != null)
                 return false;
-        } else if (!bureau.equals(other.bureau))
+        } else if (!fonction.equals(other.fonction))
+            return false;
+        if (user == null) {
+            if (other.user != null)
+                return false;
+        } else if (!user.equals(other.user))
             return false;
         return true;
     }
 
-
-   
 }

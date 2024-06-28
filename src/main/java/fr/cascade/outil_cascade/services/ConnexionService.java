@@ -39,7 +39,8 @@ public class ConnexionService {
         Optional<Connexion> existingConnexion = connexionRepository.findById(id);
         if (existingConnexion.isPresent()) {
             Connexion connexion = existingConnexion.get();
-            connexion.setDateHeureConnexion(updatedConnexion.getDateHeureConnexion());
+            connexion.setDateHeureDebutConnexion(updatedConnexion.getDateHeureDebutConnexion());
+            connexion.setDateHeureFinConnexion(updatedConnexion.getDateHeureFinConnexion());
             return connexionRepository.save(connexion);
         }
         return null; // Gérer le cas où la connexion n'est pas trouvée

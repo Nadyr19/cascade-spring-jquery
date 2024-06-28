@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  app:
+    image: mousse2025/springserveur
+    container_name: spring
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+  db:
+    image: mousse2025/mysqlserveur
+    container_name: mysql_db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: ""  # Si vous laissez vide, assurez-vous de mettre une chaîne vide
+      MYSQL_DATABASE: app
+      MYSQL_USER: mousse
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

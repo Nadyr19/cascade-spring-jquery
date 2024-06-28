@@ -22,7 +22,7 @@ public class ConnexionController {
      @Autowired
     private ConnexionService connexionService;
 
-    @GetMapping
+    @GetMapping("/liste")
     public List<Connexion> getAllConnexions() {
         return connexionService.getAllConnexion();
     }

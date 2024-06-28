@@ -55,7 +55,7 @@ flex-direction: row;
     text-align: justify;
     text-align: center;
   }
-/*
+
   .topnav {
 
     overflow: hidden;
@@ -75,7 +75,7 @@ flex-direction: row;
     background-color: #ddd;
     color: black;
   }
-    */
+    
   
    /*Create a right-aligned (split) link inside the navigation bar*/ 
   .topnav a.split {

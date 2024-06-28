@@ -1,0 +1,15 @@
+# Utiliser l'image de base MySQL
+FROM mysql:8.0
+
+# Définir les variables d'environnement pour MySQL
+ENV MYSQL_ALLOW_EMPTY_PASSWORD=1
+ENV MYSQL_ROOT_PASSWORD=
+ENV MYSQL_DATABASE=app
+ENV MYSQL_USER=nadyr
+ENV MYSQL_PASSWORD=123456
+
+# Copier le fichier SQL dans le répertoire de démarrage de Docker
+COPY mysql.sql /docker-entrypoint-initdb.d/
+
+# Exposer le port 3306
+EXPOSE 3306
