@@ -10,7 +10,7 @@ VOLUME /tmp
 #ici un script va permettre de verifier l'execution du container mysql
 COPY wait.sh /wait.sh
 RUN chmod +x /wait.sh
-COPY target/webadmin-0.0.1-SNAPSHOT.jar app.jar
+COPY target/outil-cascade-0.0.1-SNAPSHOT.jar app.jar
 #ces commandes s'executeront au demarrage du container executant spring
 ENTRYPOINT ["./wait.sh", "db", "3306", "java", "-jar", "app.jar"]
 

@@ -17,7 +17,7 @@ import fr.cascade.outil_cascade.repositories.UserRepository;
 public class RoleService {
 
     @Autowired
-    private RoleRepository roleRepository;
+    RoleRepository roleRepository;
 
     @Autowired
     UserRepository userRepository;
@@ -34,9 +34,9 @@ public class RoleService {
         return roleRepository.findById(roleId);
     }
 
-    public List<User> getRoleUsers(long userId){
+    public List<User> getRoleUsers(long roleId){
         List<User> users = new ArrayList<>();
-        Iterable<User> usersIterable = userRepository.findAllByRoleId(userId);
+        Iterable<User> usersIterable = userRepository.findAllByRoleId(roleId);
         usersIterable.forEach(users::add);
         return users;
     }
