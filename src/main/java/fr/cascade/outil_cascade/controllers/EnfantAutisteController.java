@@ -1,4 +1,3 @@
-/* 
 package fr.cascade.outil_cascade.controllers;
 
 import java.util.List;
@@ -16,7 +15,7 @@ import fr.cascade.outil_cascade.entities.EnfantAutiste;
 import fr.cascade.outil_cascade.services.EnfantAutisteService;
 
 @Controller
-@RequestMapping("/enfantAutiste")
+@RequestMapping("/enfant_autiste")
 public class EnfantAutisteController {
 
     @Autowired
@@ -25,7 +24,7 @@ public class EnfantAutisteController {
     @GetMapping("/list")
     public String showEnfantAutisteList(Model model) {
         List<EnfantAutiste> enfantAutistes = enfantAutisteService.getAllEnfantAutistes();
-        model.addAttribute("EnfantAutistes", enfantAutistes);
+        model.addAttribute("enfantAutistes", enfantAutistes);
         return "enfantAutisteList";
     }
 
@@ -37,21 +36,21 @@ public class EnfantAutisteController {
 
     @GetMapping("/edit/{id}")
     public String showEditEnfantAutisteForm(@PathVariable Long id, Model model) {
-        EnfantAutiste EnfantAutiste = EnfantAutisteService.getEnfantAutisteById(id);
-        model.addAttribute("EnfantAutiste", EnfantAutiste);
+        EnfantAutiste enfantAutiste = enfantAutisteService.getEnfantAutisteById(id);
+        model.addAttribute("enfantAutiste", enfantAutiste);
         return "addEditEnfantAutiste";
     }
 
     @PostMapping("/save")
     public String saveEnfantAutiste(@ModelAttribute EnfantAutiste EnfantAutiste) {
-        EnfantAutisteService.addEnfantAutiste(EnfantAutiste);
-        return "redirect:/EnfantAutiste/list";
+        enfantAutisteService.addEnfantAutiste(EnfantAutiste);
+        return "redirect:/enfant_autiste/list";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteEnfantAutiste(@PathVariable Long id) {
-        EnfantAutisteService.deleteEnfantAutisteById (id);
-        return "redirect:/EnfantAutiste/list";
+        enfantAutisteService.deleteEnfantAutisteById (id);
+        return "redirect:/enfant_autiste/list";
     }
 }
-    */
+    

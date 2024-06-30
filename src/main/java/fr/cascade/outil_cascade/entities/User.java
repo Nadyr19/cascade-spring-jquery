@@ -17,30 +17,19 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
-    private static final long serialVersionUID = 1L;
+   // private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
    // @Column(name = "user_id")
     private Long id;
-
-    @NotBlank(message = "First name is required")
-    @Size(max = 255, message = "First name cannot exceed 255 characters")
-    @Column(name = "First_Name", nullable = false)
-    private String firstName;
-
-    @NotBlank(message = "Last name is required")
-    @Size(max = 255, message = "Last name cannot exceed 255 characters") 
-    @Column(name = "Last_Name", nullable = false)
-    private String lastName;
 
     @NotBlank(message = "Email is required")
     @Column(name = "Email", nullable = false, unique = true)
     private String email;
 
-    @NotBlank(message = "Password name is required")
+    @NotBlank(message = "Password is required")
     @Column(name = "Password", nullable = false)
     private String password;
 
@@ -58,17 +47,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Connexion> connexion;
 
-
-
     @ManyToOne
     private Role role;
 
-
-    
     @Override
     public String toString() {
-        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-                + ", password=" + password + "]";
+        return "User [id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + "]";
     }
 
     @Override
@@ -76,10 +60,13 @@ public class User {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-        result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
+        result = prime * result + ((enfantAutiste == null) ? 0 : enfantAutiste.hashCode());
+        result = prime * result + ((administrateur == null) ? 0 : administrateur.hashCode());
+        result = prime * result + ((professionnelSante == null) ? 0 : professionnelSante.hashCode());
+        result = prime * result + ((connexion == null) ? 0 : connexion.hashCode());
+        result = prime * result + ((role == null) ? 0 : role.hashCode());
         return result;
     }
 
@@ -97,16 +84,6 @@ public class User {
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (firstName == null) {
-            if (other.firstName != null)
-                return false;
-        } else if (!firstName.equals(other.firstName))
-            return false;
-        if (lastName == null) {
-            if (other.lastName != null)
-                return false;
-        } else if (!lastName.equals(other.lastName))
-            return false;
         if (email == null) {
             if (other.email != null)
                 return false;
@@ -117,11 +94,36 @@ public class User {
                 return false;
         } else if (!password.equals(other.password))
             return false;
+        if (enfantAutiste == null) {
+            if (other.enfantAutiste != null)
+                return false;
+        } else if (!enfantAutiste.equals(other.enfantAutiste))
+            return false;
+        if (administrateur == null) {
+            if (other.administrateur != null)
+                return false;
+        } else if (!administrateur.equals(other.administrateur))
+            return false;
+        if (professionnelSante == null) {
+            if (other.professionnelSante != null)
+                return false;
+        } else if (!professionnelSante.equals(other.professionnelSante))
+            return false;
+        if (connexion == null) {
+            if (other.connexion != null)
+                return false;
+        } else if (!connexion.equals(other.connexion))
+            return false;
+        if (role == null) {
+            if (other.role != null)
+                return false;
+        } else if (!role.equals(other.role))
+            return false;
         return true;
     }
 
- 
 
+    
     
 
     

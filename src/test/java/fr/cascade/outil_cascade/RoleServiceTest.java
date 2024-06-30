@@ -81,16 +81,12 @@ public class RoleServiceTest {
         user1.setId(100L);
         user1.setEmail("fifi@gmail.com");
         user1.setPassword("fifi123!");
-        user1.setFirstName("Fifi");
-        user1.setLastName("Tata");
         user1.setRole(role);
 
         User user2 = new User();
         user2.setId(101L);
         user2.setEmail("toto@gmail.com");
         user2.setPassword("toto123!");
-        user2.setFirstName("Toto");
-        user2.setLastName("Riri");
         user2.setRole(role);
         when(userRepository.findAllByRoleId(anyLong())).thenReturn(Arrays.asList(user1, user2));
 
@@ -101,13 +97,9 @@ public class RoleServiceTest {
 
         assertEquals("fifi@gmail.com", users.get(0).getEmail());
         assertEquals("fifi123!", users.get(0).getPassword());
-        assertEquals("Fifi", users.get(0).getFirstName());
-        assertEquals("Tata", users.get(0).getLastName());
 
         assertEquals("toto@gmail.com", users.get(1).getEmail());
         assertEquals("toto123!", users.get(1).getPassword());
-        assertEquals("Toto", users.get(1).getFirstName());
-        assertEquals("Riri", users.get(1).getLastName());
     }
 
 }

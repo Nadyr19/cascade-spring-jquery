@@ -50,16 +50,12 @@ public class RoleServiceIntegrationTest {
         User user1 = new User();
         user1.setEmail("fifi@gmail.com");
         user1.setPassword("fifi123!");
-        user1.setFirstName("Fifi");
-        user1.setLastName("Tata");
         user1.setRole(role1);
         
         
         User user2 = new User();
         user2.setEmail("toto@gmail.com");
         user2.setPassword("toto123!");
-        user2.setFirstName("Toto");
-        user2.setLastName("Riri");
         user2.setRole(role1);
         
         userRepository.save(user1);
@@ -96,14 +92,10 @@ public class RoleServiceIntegrationTest {
         
         assertEquals("fifi@gmail.com", users.get(0).getEmail());
         assertEquals("fifi123!", users.get(0).getPassword());
-        assertEquals("Fifi", users.get(0).getFirstName());
-        assertEquals("Tata", users.get(0).getLastName());
 
         assertEquals("toto@gmail.com", users.get(1).getEmail());
         assertEquals("toto123!", users.get(1).getPassword());
-        assertEquals("Toto", users.get(1).getFirstName());
-        assertEquals("Riri", users.get(1).getLastName());
     }
 
 }
-*/
+    */

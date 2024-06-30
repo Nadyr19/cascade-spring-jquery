@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   app:
-    image: mousse2025/springserveur
+    image: nadyr19/springserveur
     container_name: spring
     ports:
       - "8081:8081"
@@ -11,13 +11,13 @@ services:
       - mynetwork
 
   db:
-    image: mousse2025/mysqlserveur
+    image: nadyr19/mysqlserveur
     container_name: mysql_db
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      MYSQL_ROOT_PASSWORD: ""  # Si vous laissez vide, assurez-vous de mettre une chaîne vide
+      MYSQL_ROOT_PASSWORD: ""  # Si vous laissez vide, a ssurez-vous de mettre une chaîne vide
       MYSQL_DATABASE: app
-      MYSQL_USER: mousse
+      MYSQL_USER: nadyr
       MYSQL_PASSWORD: 123456
     ports:
       - "3306:3306"

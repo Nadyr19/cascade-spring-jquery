@@ -1,7 +1,7 @@
 package fr.cascade.outil_cascade.services;
 
 import java.util.List;
-//import java.util.Optional;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,39 +13,42 @@ import fr.cascade.outil_cascade.repositories.EnfantAutisteRepository;
 public class EnfantAutisteService {
 
     @Autowired
-    private EnfantAutisteRepository utilisateurRepository;
+    private EnfantAutisteRepository enfantAutisteRepository;
 
-    public List<EnfantAutiste> getAllUtilisateurs() {
-        return utilisateurRepository.findAll();
+    public List<EnfantAutiste> getAllEnfantAutistes() {
+        return enfantAutisteRepository.findAll();
     }
 
-    public EnfantAutiste getUtilisateurById(Long id) {
-        return utilisateurRepository.findById(id).orElse(null);
+    public EnfantAutiste getEnfantAutisteById(Long id) {
+        return enfantAutisteRepository.findById(id).orElse(null);
     }
 
-    public EnfantAutiste addUtilisateur(EnfantAutiste utilisateur) {
-        return utilisateurRepository.save(utilisateur);
+    public EnfantAutiste addEnfantAutiste(EnfantAutiste EnfantAutiste) {
+        return enfantAutisteRepository.save(EnfantAutiste);
     }
     
-    public void deleteUtilisateurById(Long id) {
-        utilisateurRepository.deleteById(id);
+    public void deleteEnfantAutisteById(Long id) {
+        enfantAutisteRepository.deleteById(id);
     }
 
-    public void deleteUtilisateurByName(EnfantAutiste utilisateur) {
-        utilisateurRepository.delete(utilisateur);
+    public void deleteEnfantAutisteByName(EnfantAutiste EnfantAutiste) {
+        enfantAutisteRepository.delete(EnfantAutiste);
     }
-/* 
-    public EnfantAutiste updateUtilisateur(Long id, EnfantAutiste updatedUtilisateur) {
-        Optional<EnfantAutiste> existingUtilisateur = utilisateurRepository.findById(id);
-        if (existingUtilisateur.isPresent()) {
-            EnfantAutiste utilisateur = existingUtilisateur.get();
-            utilisateur.setClasse(updatedUtilisateur.getClasse());
-            utilisateur.setEcole(updatedUtilisateur.getEcole());
-            return utilisateurRepository.save(utilisateur);
+
+    public EnfantAutiste updateEnfantAutiste(Long id, EnfantAutiste updatedEnfantAutiste) {
+        Optional<EnfantAutiste> existingEnfantAutiste = enfantAutisteRepository.findById(id);
+        if (existingEnfantAutiste.isPresent()) {
+            EnfantAutiste enfantAutiste = existingEnfantAutiste.get();
+            enfantAutiste.setNom(updatedEnfantAutiste.getNom());
+            enfantAutiste.setPrenom(updatedEnfantAutiste.getPrenom());
+            enfantAutiste.setDateNaissance(updatedEnfantAutiste.getDateNaissance());
+            enfantAutiste.setClasse(updatedEnfantAutiste.getClasse());
+            enfantAutiste.setEcole(updatedEnfantAutiste.getEcole());
+            return enfantAutisteRepository.save(enfantAutiste);
         }
-        return null; // Gérer le cas où la utilisateur n'est pas trouvée
+        return null; // Gérer le cas où la EnfantAutiste n'est pas trouvée
     }
-    */
+
 
     // Ajouter d'autres méthodes pour mettre à jour, supprimer,
 

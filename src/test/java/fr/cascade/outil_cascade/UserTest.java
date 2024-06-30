@@ -30,14 +30,10 @@ public class UserTest {
         user.setId(1L);
         user.setEmail("riri@gmail.com");
         user.setPassword("riri2024");
-        user.setFirstName("Riri");
-        user.setLastName("Fafa");
 
         assertEquals(1L, user.getId());
         assertEquals("riri@gmail.com", user.getEmail());
         assertEquals("riri2024", user.getPassword());
-        assertEquals("Riri", user.getFirstName());
-        assertEquals("Fafa", user.getLastName());
     }
 
     @Test
@@ -46,10 +42,9 @@ public class UserTest {
         user.setId(1L);
         user.setEmail("riri@gmail.com");
         user.setPassword("riri2024");
-        user.setFirstName("Riri");
-        user.setLastName("Fafa");
 
-        String expectedString = "User [id=1, firstName=Riri, lastName=Fafa, email=riri@gmail.com, password=riri2024]";
+
+        String expectedString = "User [id=1, email=riri@gmail.com, password=riri2024]";
         assertEquals(expectedString, user.toString());
 
     }

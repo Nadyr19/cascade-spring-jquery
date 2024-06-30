@@ -24,16 +24,12 @@ public class UserRoleRelationTest {
         user1.setId(100L);
         user1.setEmail("fifi@gmail.com");
         user1.setPassword("fifi123!");
-        user1.setFirstName("Fifi");
-        user1.setLastName("Tata");
         user1.setRole(role);
 
         User user2 = new User();
         user2.setId(101L);
         user2.setEmail("toto@gmail.com");
         user2.setPassword("toto123!");
-        user2.setFirstName("Toto");
-        user2.setLastName("Riri");
         user2.setRole(role);
 
 

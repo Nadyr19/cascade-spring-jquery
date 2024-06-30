@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1"
     />
-    
+
     <title th:text="#{view.index.title}">Cascade</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,20 +15,15 @@
       href="https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Roboto:wght@400;900&display=swap"
       rel="stylesheet"
     />
-    <link th:href="@{/css/style1.css}" rel="stylesheet">
-   <!-- <title>Liste Utilisateur</title> -->
-
+    <link th:href="@{/css/style1.css}" rel="stylesheet" />
+    <!-- <title>Liste Utilisateur</title> -->
   </head>
 
   <body>
-  
     <header>
       <div>
-        <a th:href="@{/index}"
-          ><img
-            src="/images/haarp_logo.png"
-            alt="Logo HAARP"
-            id="logo-haarp"
+        <a th:href="@{/home}"
+          ><img src="/images/haarp_logo.png" alt="Logo HAARP" id="logo-haarp"
         /></a>
       </div>
       <div>
@@ -36,7 +31,7 @@
         <h2 class="briem-hand">outils d'apprentissage</h2>
       </div>
       <div>
-        <a th:href="@{/index}"
+        <a th:href="@{/home}"
           ><img src="/images/epmi_logo.png" alt="Logo EPMI"
         /></a>
       </div>
@@ -63,34 +58,28 @@
         <a th:href="@{/inscription}" class="split">Inscription</a>
       </nav>
     </div>
-   
 
-    <h2>Liste Professionnel de Santé</h2>
-    <table border="1">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nom</th>
-          <th>Prenom</th>
-          <th>Date de naissance</th>
-          <th>Specialite</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="professionnelSante : ${professionnelSante}">
-          <td th:text="${professionnelSante.id}"></td>
-          <td th:text="${professionnelSante.nom}"></td>
-          <td th:text="${professionnelSante.prenom}"></td>
-          <td th:text="${professionnelSante.dateNaissance}"></td>
-          <td th:text="${professionnelSante.specialite}"></td>
-          <td>
-            <a th:href="@{'/professionnel_sante/edit/' + ${professionnelSante.id}}">Edit</a>
-            <a th:href="@{'/professionnel_sante/delete/' + ${professionnelSante.id}}">Delete</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <a th:href="@{/professionnel_sante/add}">Add Professionnel de Santé</a>
+    <h2>Add/Edit Administrateur</h2>
+
+    <form th:action="@{/administrateur/save}" th:object="${administrateur}" method="post">
+        <input type="hidden" th:field="*{id}" />  
+        <label for="nom" >Nom:</label>
+        <input type="text" title="nom" placeholder="Nom" th:field="*{nom}" />
+        <br />
+        <label for="prenom">Prénom:</label>
+        <input type="text" title="prenom" placeholder="Prenom" th:field="*{prenom}" />
+        <br />
+        <div class="form-group">
+          <label for="dateNaissance">Date de Naissance:</label>
+          <input type="text" th:field="*{dateNaissance}" class="form-control" placeholder="yyyy-MM-dd" 
+         required>
+         </div>
+        <br />
+        <label for="bureau">Bureau:</label>
+        <input type="text" title="bureau" placeholder="Bureau" th:field="*{bureau}" />
+        <br />
+        <button type="submit">Save</button>
+      </form>
+    <a th:href="@{/administrateur/list}">Back to List</a>
   </body>
 </html>

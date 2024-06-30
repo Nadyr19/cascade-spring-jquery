@@ -21,7 +21,6 @@
     <script type="text/javascript" th:src="@{/js/config.js}" defer></script>
     <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
     <script type="text/javascript" th:src="@{/js/main.js}" defer></script>
-
   </head>
 
   <body>
@@ -47,6 +46,21 @@
         <a class="active" th:href="@{/}">Home</a>
         <a th:href="@{/exercices}">Exercices</a>
         <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
+        <div class="dropdown">
+          <button class="dropbtn">
+            Administration
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a th:href="@{/user/list}">Users</a>
+            <a th:href="@{/enfant_autiste/list}">Enfants Autistes</a>
+            <a th:href="@{/professionnel_sante/list}"
+              >Professionnels de Santé</a
+            >
+            <a th:href="@{/administrateur/list}">Administrateurs</a>
+            <a th:href="@{/connexion/list}">Connexions</a>
+          </div>
+        </div>
         <a th:href="@{/identification}" class="split">Connexion</a>
         <a th:href="@{/inscription}" class="split">Inscription</a>
       </nav>
@@ -54,62 +68,85 @@
 
     <main>
       <section>
-      <p>Ta mère veut bien te faire la tarte au pomme que tu lui demandes. Elle s'apperçoit qu'il lui manque quelques produits. <br>
-         Peux-tu aller les chercher ? Elle a besoin de :
-      </p>
-      
-      <div class="conteneur">
-        <div class="box2-exo">
-          <h2>6 pommes</h2>
-          <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie"/>
-          <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie"/>
-          <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie"/>
-          <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie"/>
-          <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie"/>
-          <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie"/>
+        <p>
+          Ta mère veut bien te faire la tarte au pomme que tu lui demandes. Elle
+          s'apperçoit qu'il lui manque quelques produits. <br />
+          Peux-tu aller les chercher ? Elle a besoin de :
+        </p>
+
+        <div class="conteneur">
+          <div class="box2-exo">
+            <h2>6 pommes</h2>
+            <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/pomme.png" alt="Exercice Pâtisserie" />
+          </div>
+
+          <div class="box2-exo">
+            <h2>2 oeufs</h2>
+            <img src="/images/composants/oeuf.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/oeuf.png" alt="Exercice Pâtisserie" />
+          </div>
+
+          <div class="box2-exo">
+            <h2>5 plaquettes de beurre</h2>
+            <img
+              src="/images/composants/beurre.png"
+              alt="Exercice Pâtisserie"
+            />
+            <img
+              src="/images/composants/beurre.png"
+              alt="Exercice Pâtisserie"
+            />
+            <img
+              src="/images/composants/beurre.png"
+              alt="Exercice Pâtisserie"
+            />
+            <img
+              src="/images/composants/beurre.png"
+              alt="Exercice Pâtisserie"
+            />
+            <img
+              src="/images/composants/beurre.png"
+              alt="Exercice Pâtisserie"
+            />
+          </div>
         </div>
 
-        <div class="box2-exo">
-          <h2>2 oeufs</h2>
-          <img src="/images/composants/oeuf.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/oeuf.png" alt="Exercice Pâtisserie" />
-        </div>
+        <div class="conteneur">
+          <div class="box2-exo">
+            <h2>2 paquets de farine</h2>
+            <img
+              src="/images/composants/farine.png"
+              alt="Exercice Pâtisserie"
+            />
+            <img
+              src="/images/composants/farine.png"
+              alt="Exercice Pâtisserie"
+            />
+          </div>
 
-        <div class="box2-exo">
-          <h2>5 plaquettes de beurre</h2>
-          <img src="/images/composants/beurre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/beurre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/beurre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/beurre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/beurre.png" alt="Exercice Pâtisserie" />
+          <div class="box2-exo">
+            <h2>12 sucres</h2>
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+            <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
+          </div>
         </div>
-      </div>
-
-      <div class="conteneur">
-        <div class="box2-exo">
-          <h2>2 paquets de farine</h2>
-          <img src="/images/composants/farine.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/farine.png" alt="Exercice Pâtisserie" />
-        </div>
-
-        <div class="box2-exo">
-          <h2>12 sucres</h2>
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-          <img src="/images/composants/sucre.png" alt="Exercice Pâtisserie" />
-        </div>
-      </div>
-    <button id="bouton1">envoyer</button>
-    </section>
+        <button id="bouton1">envoyer</button>
+      </section>
     </main>
     <footer id="basPage">© Copyright 2018 Moncef Benkherrat</footer>
   </body>

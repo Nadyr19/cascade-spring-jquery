@@ -65,32 +65,28 @@
     </div>
    
 
-    <h2>Liste Professionnel de Santé</h2>
+    <h2>Liste Users</h2>
     <table border="1">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Nom</th>
-          <th>Prenom</th>
-          <th>Date de naissance</th>
-          <th>Specialite</th>
+          <th>Email</th>
+          <th>Password</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr th:each="professionnelSante : ${professionnelSante}">
-          <td th:text="${professionnelSante.id}"></td>
-          <td th:text="${professionnelSante.nom}"></td>
-          <td th:text="${professionnelSante.prenom}"></td>
-          <td th:text="${professionnelSante.dateNaissance}"></td>
-          <td th:text="${professionnelSante.specialite}"></td>
+        <tr th:each="user : ${users}">
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.email}"></td>
+          <td th:text="${user.password}"></td>
           <td>
-            <a th:href="@{'/professionnel_sante/edit/' + ${professionnelSante.id}}">Edit</a>
-            <a th:href="@{'/professionnel_sante/delete/' + ${professionnelSante.id}}">Delete</a>
+            <a th:href="@{'/user/edit/' + ${user.id}}">Edit</a>
+            <a th:href="@{'/user/delete/' + ${user.id}}">Delete</a>
           </td>
         </tr>
       </tbody>
     </table>
-    <a th:href="@{/professionnel_sante/add}">Add Professionnel de Santé</a>
+    <a th:href="@{/user/add}">Add User</a>
   </body>
 </html>

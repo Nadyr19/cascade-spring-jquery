@@ -46,10 +46,23 @@
         <a class="active" th:href="@{/}">Home</a>
         <a th:href="@{/exercices}">Exercices</a>
         <a th:href="@{/mon_tableau_de_bord}">Mon Tableau de Bord</a>
+        <div class="dropdown">
+          <button class="dropbtn">Administration
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a th:href="@{/user/list}">Users</a>
+            <a th:href="@{/enfant_autiste/list}">Enfants Autistes</a>
+            <a th:href="@{/professionnel_sante/list}">Professionnels de Santé</a>
+            <a th:href="@{/administrateur/list}">Administrateurs</a>
+            <a th:href="@{/connexion/list}">Connexions</a>
+          </div>
+        </div> 
         <a th:href="@{/identification}" class="split">Connexion</a>
         <a th:href="@{/inscription}" class="split">Inscription</a>
       </nav>
     </div>
+    
     <main>
       <section>
         <h2>Exercices Pâtisserie</h2>

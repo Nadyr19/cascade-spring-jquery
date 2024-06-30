@@ -42,16 +42,12 @@ public class UserRoleIntegrationTest {
     User user1 = new User();
     user1.setEmail("fifi@gmail.com");
     user1.setPassword("fifi123!");
-    user1.setFirstName("Fifi");
-    user1.setLastName("Tata");
     users.add(user1);
     user1.setRole(role);
 
     User user2 = new User();
     user2.setEmail("toto@gmail.com");
     user2.setPassword("toto123!");
-    user2.setFirstName("Toto");
-    user2.setLastName("Riri");
     users.add(user2);
     user2.setRole(role);
 

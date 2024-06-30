@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,14 +13,32 @@ import jakarta.persistence.Id;
 //import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class EnfantAutiste {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nom;
+    private String prenom;
+
+    @NotNull(message = "Date of birth is required")
+    @Past(message = "Date of birth must be in the past")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
+    private String ecole;
+    private String classe;
 
     @OneToOne
     private User user;
@@ -26,56 +46,10 @@ public class EnfantAutiste {
     @OneToMany(mappedBy = "enfantAutiste")
     private Collection<Resultat> resultat = new ArrayList<>();
 
-    public Collection<Resultat> getResultat() {
-        return resultat;
-    }
-
-    public void setResultat(Collection<Resultat> resultat) {
-        this.resultat = resultat;
-    }
-
-    public EnfantAutiste(Collection<Resultat> resultat) {
-        this.resultat = resultat;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getDateNaissance() {
-        return dateNaissance;
-    }
-
-    public void setDateNaissance(Date dateNaissance) {
-        this.dateNaissance = dateNaissance;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public EnfantAutiste() {
-    }
-
-    public EnfantAutiste(Long id, Date dateNaissance, User user, Collection<Resultat> resultat) {
-        this.id = id;
-        this.dateNaissance = dateNaissance;
-        this.user = user;
-        this.resultat = resultat;
-    }
-
     @Override
     public String toString() {
-        return "EnfantAutiste [id=" + id + ", dateNaissance=" + dateNaissance + ", user=" + user + ", resultat="
-                + resultat + "]";
+        return "EnfantAutiste [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
+                + ", ecole=" + ecole + ", classe=" + classe + ", user=" + user + ", resultat=" + resultat + "]";
     }
 
     @Override
@@ -83,7 +57,11 @@ public class EnfantAutiste {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+        result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
         result = prime * result + ((dateNaissance == null) ? 0 : dateNaissance.hashCode());
+        result = prime * result + ((ecole == null) ? 0 : ecole.hashCode());
+        result = prime * result + ((classe == null) ? 0 : classe.hashCode());
         result = prime * result + ((user == null) ? 0 : user.hashCode());
         result = prime * result + ((resultat == null) ? 0 : resultat.hashCode());
         return result;
@@ -103,10 +81,30 @@ public class EnfantAutiste {
                 return false;
         } else if (!id.equals(other.id))
             return false;
+        if (nom == null) {
+            if (other.nom != null)
+                return false;
+        } else if (!nom.equals(other.nom))
+            return false;
+        if (prenom == null) {
+            if (other.prenom != null)
+                return false;
+        } else if (!prenom.equals(other.prenom))
+            return false;
         if (dateNaissance == null) {
             if (other.dateNaissance != null)
                 return false;
         } else if (!dateNaissance.equals(other.dateNaissance))
+            return false;
+        if (ecole == null) {
+            if (other.ecole != null)
+                return false;
+        } else if (!ecole.equals(other.ecole))
+            return false;
+        if (classe == null) {
+            if (other.classe != null)
+                return false;
+        } else if (!classe.equals(other.classe))
             return false;
         if (user == null) {
             if (other.user != null)
