@@ -61,7 +61,7 @@
 
     <h2>Add/Edit Professionnel de Santé</h2>
 
-    <form th:action="@{/professionnel_sante/save}" th:object="${professionnelsante}" method="post">
+    <form th:action="@{/professionnel_sante/save}" th:object="${professionnelSante}" method="post">
       <input type="hidden" th:field="*{id}" />  
       <label for="nom" >Nom:</label>
       <input type="text" title="nom" placeholder="Nom" th:field="*{nom}" />
