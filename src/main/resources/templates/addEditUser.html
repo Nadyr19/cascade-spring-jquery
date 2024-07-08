@@ -61,7 +61,7 @@
 
     <h2>Add/Edit User</h2>
 
-    <form th:action="@{/user/save}" th:object="${users}" method="post">
+    <form th:action="@{/user/save}" th:object="${user}" method="post">
       <input type="hidden" th:field="*{id}" />  
       <label for="email">Email:</label>
       <input type="text" title="email" th:field="*{email}" />

@@ -3,8 +3,8 @@ package fr.cascade.outil_cascade.entities;
 import java.util.List;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+//import jakarta.validation.constraints.NotBlank;
+//import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,12 +25,12 @@ public class User {
    // @Column(name = "user_id")
     private Long id;
 
-    @NotBlank(message = "Email is required")
-    @Column(name = "Email", nullable = false, unique = true)
+  //  @NotBlank(message = "Email is required")
+  //  @Column(name = "Email", nullable = false, unique = true)
     private String email;
 
-    @NotBlank(message = "Password is required")
-    @Column(name = "Password", nullable = false)
+  //  @NotBlank(message = "Password is required")
+  //  @Column(name = "Password", nullable = false)
     private String password;
 
     

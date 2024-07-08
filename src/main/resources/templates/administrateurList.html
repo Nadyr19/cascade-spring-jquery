@@ -83,8 +83,7 @@
           <td th:text="${administrateur.nom}"></td>
           <td th:text="${administrateur.prenom}"></td>
           <td th:text="${administrateur.dateNaissance}"></td>
-          <td th:text="${administrateur.ecole}"></td>
-          <td th:text="${administrateur.classe}"></td>
+          <td th:text="${administrateur.bureau}"></td>
           <td>
             <a th:href="@{'/administrateur/edit/' + ${administrateur.id}}">Edit</a>
             <a th:href="@{'/administrateur/delete/' + ${administrateur.id}}">Delete</a>
