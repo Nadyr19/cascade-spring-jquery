@@ -51,9 +51,9 @@ public class HomeController {
         return "mon_tableau_de_bord";
     }
 
-    @GetMapping("/administrateur")
+    @GetMapping("/admin")
     public String getAdministration() {
-        return "administrateurList";
+        return "administrateur";
     }
 
     @GetMapping("/enfant_autiste")

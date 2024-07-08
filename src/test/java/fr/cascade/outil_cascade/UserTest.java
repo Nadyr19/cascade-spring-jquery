@@ -2,6 +2,8 @@ package fr.cascade.outil_cascade;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Date;
+
 import org.junit.jupiter.api.Test;
 import fr.cascade.outil_cascade.entities.User;
 // import fr.cascade.outil_cascade.entities.Utilisateur;
@@ -30,10 +32,14 @@ public class UserTest {
         user.setId(1L);
         user.setEmail("riri@gmail.com");
         user.setPassword("riri2024");
+        user.setNom("Riri");
+        user.setPrenom("Fifi");
 
         assertEquals(1L, user.getId());
         assertEquals("riri@gmail.com", user.getEmail());
         assertEquals("riri2024", user.getPassword());
+        assertEquals("Riri", user.getNom());
+        assertEquals("Fifi", user.getPrenom());
     }
 
     @Test
@@ -42,9 +48,11 @@ public class UserTest {
         user.setId(1L);
         user.setEmail("riri@gmail.com");
         user.setPassword("riri2024");
+        user.setNom("Riri");
+        user.setPrenom("Fifi");
 
 
-        String expectedString = "User [id=1, email=riri@gmail.com, password=riri2024]";
+        String expectedString = "User [id=1, email=riri@gmail.com, password=riri2024, nom=Riri, prenom=Fifi]";
         assertEquals(expectedString, user.toString());
 
     }

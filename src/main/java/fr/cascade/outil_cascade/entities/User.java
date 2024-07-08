@@ -1,15 +1,20 @@
 package fr.cascade.outil_cascade.entities;
 
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 //import jakarta.validation.constraints.NotBlank;
 //import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @Getter
 @Setter
@@ -18,32 +23,34 @@ import lombok.Setter;
 @Entity
 @Table(name = "users")
 public class User {
-   // private static final long serialVersionUID = 1L;
+    // private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   // @Column(name = "user_id")
+    // @Column(name = "user_id")
     private Long id;
 
-  //  @NotBlank(message = "Email is required")
-  //  @Column(name = "Email", nullable = false, unique = true)
+    @NotBlank(message = "Email is required")
+    @Column(name = "Email", nullable = false, unique = true)
     private String email;
 
-  //  @NotBlank(message = "Password is required")
-  //  @Column(name = "Password", nullable = false)
+    @NotBlank(message = "Password is required")
+    @Column(name = "Password", nullable = false)
     private String password;
 
-    
+    private String nom;
+    private String prenom;
+
+    @NotNull(message = "Date of birth is required")
+    @Past(message = "Date of birth must be in the past")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateNaissance;
+   
 
     @OneToOne(mappedBy = "user")
     private EnfantAutiste enfantAutiste;
 
-    @OneToOne(mappedBy = "user")
-    private Administrateur administrateur;
 
-    @OneToOne(mappedBy = "user")
-    private ProfessionnelSante professionnelSante;
-  
     @OneToMany(mappedBy = "user")
     private List<Connexion> connexion;
 
@@ -52,7 +59,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + "]";
+        return "User [id=" + id + ", email=" + email + ", password=" + password + ", nom=" + nom + ", prenom=" + prenom + "]";
     }
 
     @Override
@@ -62,9 +69,10 @@ public class User {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
+        result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+        result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
+        result = prime * result + ((dateNaissance == null) ? 0 : dateNaissance.hashCode());
         result = prime * result + ((enfantAutiste == null) ? 0 : enfantAutiste.hashCode());
-        result = prime * result + ((administrateur == null) ? 0 : administrateur.hashCode());
-        result = prime * result + ((professionnelSante == null) ? 0 : professionnelSante.hashCode());
         result = prime * result + ((connexion == null) ? 0 : connexion.hashCode());
         result = prime * result + ((role == null) ? 0 : role.hashCode());
         return result;
@@ -94,20 +102,25 @@ public class User {
                 return false;
         } else if (!password.equals(other.password))
             return false;
+        if (nom == null) {
+            if (other.nom != null)
+                return false;
+        } else if (!nom.equals(other.nom))
+            return false;
+        if (prenom == null) {
+            if (other.prenom != null)
+                return false;
+        } else if (!prenom.equals(other.prenom))
+            return false;
+        if (dateNaissance == null) {
+            if (other.dateNaissance != null)
+                return false;
+        } else if (!dateNaissance.equals(other.dateNaissance))
+            return false;
         if (enfantAutiste == null) {
             if (other.enfantAutiste != null)
                 return false;
         } else if (!enfantAutiste.equals(other.enfantAutiste))
-            return false;
-        if (administrateur == null) {
-            if (other.administrateur != null)
-                return false;
-        } else if (!administrateur.equals(other.administrateur))
-            return false;
-        if (professionnelSante == null) {
-            if (other.professionnelSante != null)
-                return false;
-        } else if (!professionnelSante.equals(other.professionnelSante))
             return false;
         if (connexion == null) {
             if (other.connexion != null)
@@ -122,9 +135,6 @@ public class User {
         return true;
     }
 
-
-    
     
 
-    
 }

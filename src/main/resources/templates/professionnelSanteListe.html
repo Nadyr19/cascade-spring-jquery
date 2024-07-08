@@ -53,10 +53,8 @@
           </button>
           <div class="dropdown-content">
             <a th:href="@{/user/list}">Users</a>
-            <a th:href="@{/enfant_autiste/list}">Enfants Autistes</a>
-            <a th:href="@{/professionnel_sante/list}">Professionnels de Santé</a>
-            <a th:href="@{/administrateur/list}">Administrateurs</a>
-            <a th:href="@{/connexion/list}">Connexions</a>
+            <a th:href="@{/user/list/enfant-autiste}">Enfants Autistes</a>
+            <a th:href="@{/user/list/professionnel-sante}">Professionnels de Santé</a>
           </div>
         </div> 
         <a th:href="@{/identification}" class="split">Connexion</a>
@@ -73,24 +71,22 @@
           <th>Nom</th>
           <th>Prenom</th>
           <th>Date de naissance</th>
-          <th>Specialite</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr th:each="professionnelSante : ${professionnelSante}">
-          <td th:text="${professionnelSante.id}"></td>
-          <td th:text="${professionnelSante.nom}"></td>
-          <td th:text="${professionnelSante.prenom}"></td>
-          <td th:text="${professionnelSante.dateNaissance}"></td>
-          <td th:text="${professionnelSante.specialite}"></td>
+        <tr th:each="user : ${user}">
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.nom}"></td>
+          <td th:text="${user.prenom}"></td>
+          <td th:text="${user.dateNaissance}"></td>
           <td>
-            <a th:href="@{'/professionnel_sante/edit/' + ${professionnelSante.id}}">Edit</a>
-            <a th:href="@{'/professionnel_sante/delete/' + ${professionnelSante.id}}">Delete</a>
+            <a th:href="@{'/user/edit/' + ${user.id}}">Edit</a>
+            <a th:href="@{'/user/delete/' + ${user.id}}">Delete</a>
           </td>
         </tr>
       </tbody>
     </table>
-    <a th:href="@{/professionnel_sante/add}">Add Professionnel de Santé</a>
+    <a th:href="@{/user/add}">Add Professionnel de Santé</a>
   </body>
 </html>
