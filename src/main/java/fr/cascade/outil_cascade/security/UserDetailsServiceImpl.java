@@ -1,3 +1,4 @@
+/* 
 package fr.cascade.outil_cascade.security;
 
 
@@ -14,15 +15,15 @@ import org.springframework.stereotype.Service; // Import de l'annotation Service
 @Service // Annotation pour indiquer que cette classe est un service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired // Injection de dépendance pour CustomerRepository
+    @Autowired // Injection de dépendance pour UserRepository
     private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        // Charge le client par login
+        // Charge le user par login
         User user = userRepository.findByEmail(login);
         if (user == null) {
-            // Si le client n'est pas trouvé, lance une exception
+            // Si le user n'est pas trouvé, lance une exception
             throw new UsernameNotFoundException("User not found");
         }
         // Retourne un UserDetails avec les informations du client
@@ -31,3 +32,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .authorities("USER").build();
     }
 }
+*/

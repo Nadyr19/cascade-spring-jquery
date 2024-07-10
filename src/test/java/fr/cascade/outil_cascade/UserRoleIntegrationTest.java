@@ -33,7 +33,7 @@ public class UserRoleIntegrationTest {
 
     // Create a new role
     Role role = new Role();
-    role.setName("Enfant_Autiste");
+    role.setNom("Enfant_Autiste");
 
     // Save the role to the repository
     // roleRepository.save(role);

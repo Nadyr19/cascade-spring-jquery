@@ -42,8 +42,6 @@ public class EnfantAutisteService {
             enfantAutiste.setNom(updatedEnfantAutiste.getNom());
             enfantAutiste.setPrenom(updatedEnfantAutiste.getPrenom());
             enfantAutiste.setDateNaissance(updatedEnfantAutiste.getDateNaissance());
-            enfantAutiste.setClasse(updatedEnfantAutiste.getClasse());
-            enfantAutiste.setEcole(updatedEnfantAutiste.getEcole());
             return enfantAutisteRepository.save(enfantAutiste);
         }
         return null; // Gérer le cas où la EnfantAutiste n'est pas trouvée

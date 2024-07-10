@@ -37,8 +37,7 @@ public class EnfantAutiste {
     @Past(message = "Date of birth must be in the past")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
-    private String ecole;
-    private String classe;
+    private String etablissementScolaire;
 
     @OneToOne
     private User user;
@@ -49,7 +48,7 @@ public class EnfantAutiste {
     @Override
     public String toString() {
         return "EnfantAutiste [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
-                + ", ecole=" + ecole + ", classe=" + classe + ", user=" + user + ", resultat=" + resultat + "]";
+                + ", etablissementScolaire=" + etablissementScolaire + ", user=" + user + "]";
     }
 
     @Override
@@ -60,8 +59,7 @@ public class EnfantAutiste {
         result = prime * result + ((nom == null) ? 0 : nom.hashCode());
         result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
         result = prime * result + ((dateNaissance == null) ? 0 : dateNaissance.hashCode());
-        result = prime * result + ((ecole == null) ? 0 : ecole.hashCode());
-        result = prime * result + ((classe == null) ? 0 : classe.hashCode());
+        result = prime * result + ((etablissementScolaire == null) ? 0 : etablissementScolaire.hashCode());
         result = prime * result + ((user == null) ? 0 : user.hashCode());
         result = prime * result + ((resultat == null) ? 0 : resultat.hashCode());
         return result;
@@ -96,15 +94,10 @@ public class EnfantAutiste {
                 return false;
         } else if (!dateNaissance.equals(other.dateNaissance))
             return false;
-        if (ecole == null) {
-            if (other.ecole != null)
+        if (etablissementScolaire == null) {
+            if (other.etablissementScolaire != null)
                 return false;
-        } else if (!ecole.equals(other.ecole))
-            return false;
-        if (classe == null) {
-            if (other.classe != null)
-                return false;
-        } else if (!classe.equals(other.classe))
+        } else if (!etablissementScolaire.equals(other.etablissementScolaire))
             return false;
         if (user == null) {
             if (other.user != null)
@@ -119,4 +112,5 @@ public class EnfantAutiste {
         return true;
     }
 
+  
 }

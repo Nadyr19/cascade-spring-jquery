@@ -1,17 +1,17 @@
 version: '3.8'
 services:
   app:
-    image: nadyr19/springserveur
+    image: nadyr19/springserver
     container_name: spring
     ports:
-      - "8081:8081"
+      - "8080:8080"
     depends_on:
       - db
     networks:
       - mynetwork
 
   db:
-    image: nadyr19/mysqlserveur
+    image: nadyr19/mysqlserver
     container_name: mysql_db
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1

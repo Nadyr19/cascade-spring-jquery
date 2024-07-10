@@ -1,3 +1,4 @@
+/* 
 package fr.cascade.outil_cascade.security;
 
 import org.springframework.context.annotation.Bean; // Import de l'annotation Bean
@@ -55,3 +56,4 @@ public class WebSecurityConfig {
         return authenticationManagerBuilder.build(); // Construit et retourne l'AuthenticationManager
     }
 }
+*/

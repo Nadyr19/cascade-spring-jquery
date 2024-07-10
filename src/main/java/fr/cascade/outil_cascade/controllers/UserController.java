@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.cascade.outil_cascade.entities.User;
-import fr.cascade.outil_cascade.repositories.UserRepository;
 import fr.cascade.outil_cascade.services.UserService;
 
 
@@ -23,21 +22,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private UserRepository userRepository;
+// ok ok ok
 
     @GetMapping("/list/professionnel-sante") 
     public String getAllprofessionelsSante(Model model){
-        Iterable<User> User = userRepository.findAllByRoleName("Professionnel de Santé");
-         model.addAttribute("user", User);
+        Iterable<User> users = userService.getAllProfessionnelsSante();
+         model.addAttribute("users", users);
          return "professionnelSanteListe";
 
     }
 
     @GetMapping("/list/enfant-autiste") 
-    public String getAllEnfnatsAutistes(Model model){
-        Iterable<User> User = userRepository.findAllByRoleName("Enfant Autiste");
-         model.addAttribute("user", User);
+    public String getAllEnfantsAutistes(Model model){
+        Iterable<User> users = userService.getAllEnfantsAutistes();
+         model.addAttribute("users", users);
          return "enfantAutisteList";
 
     }

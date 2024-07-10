@@ -1,16 +1,29 @@
-#image de base contenant java et maven 
+#image de base contenant java et maven a partir de laquelle on va creer notre image
 FROM openjdk:17-jdk-slim
-#permet d'installer un outils dans l'image qui sera executee dans ù
+#permet d'installer un outils dans l'image qui sera executee dans 
 #le conteneur spring afin de s'assurer que le conteneur executant
-#mysql a demarre
+#mysql a demarre : netcat
+#le run qui permet d'executer des instructions pour pouvoir installer des logiciels ou un certains nombre de choses
 RUN apt-get update && apt-get install -y netcat
+#Le volume de la machine physique qui va permettre de persister des données du container 
 #je definie un volume sur ma machine physique pour persister
 #les donnees du container spring
 VOLUME /tmp
-#ici un script va permettre de verifier l'execution du container mysql
+#copy permet de copier tout fichier dans un dossier de l'image
+#ici on a réalisé un script qui va permettre d'attendre l'execution du container mysql
+#et donc ici on copie ce script dans l'image
 COPY wait.sh /wait.sh
+#la commande run qui permet d'executer une commande dans l'image
+#ensuite on va executer cette commande ci-dessous afin que wait.sh soit executable
 RUN chmod +x /wait.sh
+#ensuite on va copie le fichier executable de l'application dans app.jar
 COPY target/projetjunit.jar app.jar
+#entrypoint c'est une commande qui s'executera lorsque l'image de spring sera execute via un  container
 #ces commandes s'executeront au demarrage du container executant spring
+#"db": il faut lui donner le nom du container faisant fonctionner la BD et le port sur lequel mysql fonctionne
+#ensuite, on indique la commmande qui fera demarrer notre application: pour une appli java c'est c'ets java -jar app.jar (c'est ce qui va permmettre d'executer le serveur qui sera en attente de requetes qu'on va lui envoyer)
 ENTRYPOINT ["./wait.sh", "db", "3306", "java", "-jar", "app.jar"]
+
+
+
 

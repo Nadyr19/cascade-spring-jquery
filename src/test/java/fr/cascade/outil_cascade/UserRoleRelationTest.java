@@ -17,7 +17,7 @@ public class UserRoleRelationTest {
         //Create a role
         Role role = new Role();
         role.setId(1L);
-        role.setName("Enfant_Autiste");
+        role.setNom("Enfant_Autiste");
 
         //Create users
         User user1 = new User();

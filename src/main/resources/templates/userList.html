@@ -69,7 +69,9 @@
         <tr>
           <th>ID</th>
           <th>Email</th>
-          <th>Password</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Date de naissance</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -77,7 +79,9 @@
         <tr th:each="user : ${users}">
           <td th:text="${user.id}"></td>
           <td th:text="${user.email}"></td>
-          <td th:text="${user.password}"></td>
+          <td th:text="${user.nom}"></td>
+          <td th:text="${user.prenom}"></td>
+          <td th:text="${user.dateNaissance}"></td>
           <td>
             <a th:href="@{'/user/edit/' + ${user.id}}">Edit</a>
             <a th:href="@{'/user/delete/' + ${user.id}}">Delete</a>

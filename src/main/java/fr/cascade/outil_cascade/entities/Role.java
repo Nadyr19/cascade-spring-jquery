@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -24,7 +24,7 @@ public class Role
     private Long id;
 
     @Column(nullable=false, unique=true)
-    private String name;
+    private String nom;
 
     @OneToMany(mappedBy = "role")
     private Collection<User> users = new ArrayList<>();

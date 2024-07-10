@@ -26,7 +26,7 @@ public class RoleService {
         Iterable<Role> rolesIterable = roleRepository.findAll();
         List<Role> roles = new ArrayList<>();
         rolesIterable.forEach(roles::add);
-        roles.sort(Comparator.comparing(Role::getName));
+        roles.sort(Comparator.comparing(Role::getNom));
         return roles;
     }
 
@@ -69,7 +69,7 @@ public class RoleService {
         Optional<Role> existingRole = roleRepository.findById(id);
         if (existingRole.isPresent()) {
             Role Role = existingRole.get();
-            Role.setName(updatedRole.getName());
+            Role.setNom(updatedRole.getNom());
             return roleRepository.save(Role);
         }
         return null; // Gérer le cas où le Role n'est pas trouvé
